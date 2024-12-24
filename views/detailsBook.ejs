@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<div class="container-detail">
+  <button class="go-back">
+    <a href="/"> <img src="/assets/back.png" /></a>
+  </button>
+  <div class="information-book">
+    <div class="desc-book">
+      <img src="<%= data.img_url %>" alt="image-book" />
+      <div class="detail">
+        <h1><%= data.title %></h1>
+        <p>- <%= data.author %></p>
+        <div class="footer-information">
+          <p><%= rating.rate %> / 5.0 <img src="/assets/rating.png" /></p>
+          <p>Book Posted: <%= data.created_date.toLocaleDateString()%></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-infobook">
+      <p><%= data.book_summary %></p>
+    </div>
+  </div>
+
+  <div class="my-notes">
+    <h1>MY NOTES</h1>
+    <form action="/book/<%= data.id %>" method="post" class="input-notes">
+      <input
+        type="text"
+        name="notes"
+        class="input-notefields"
+        placeholder="Leave a notes ..."
+        required
+      />
+      <button type="submit" class="add-notes">+</button>
+    </form>
+    <div class="contains-notes">
+      <% note.forEach((nt) => { %>
+      <ul>
+        <li><%= nt?.note %></li>
+      </ul>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

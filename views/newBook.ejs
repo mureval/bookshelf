@@ -1,0 +1,85 @@
+<%- include('partials/header') %>
+
+<div class="container-newBook">
+  <button class="go-back">
+    <a href="/"> <img src="/assets/back.png" /></a>
+  </button>
+  <h1>NEW BOOK</h1>
+  <form action="/book" method="post" class="wrapper-newBook">
+    <label for="new:title-book" class="input-icon">
+      <img src="assets/title.png" alt="" />
+    </label>
+    <input
+      type="text"
+      id="new:title-book"
+      name="title"
+      placeholder="Enter book title ..."
+      class="input-text"
+      required
+    />
+
+    <label for="new:author-book" class="input-icon">
+      <img src="assets/author.png" alt="" />
+    </label>
+    <input
+      type="text"
+      id="new:author-book"
+      name="author"
+      placeholder="Enter book author ..."
+      class="input-text"
+      required
+    />
+
+    <label for="new:isbn-book" class="input-icon">
+      <img src="assets/isbn.png" alt="" />
+    </label>
+    <input
+      type="text"
+      id="new:isbn-book"
+      name="isbn"
+      placeholder="Enter book isbn ..."
+      class="input-text"
+      required
+    />
+
+    <label for="new:olid-book" class="input-icon">
+      <img src="assets/olid.png" alt="" />
+    </label>
+    <input
+      type="text"
+      id="new:olid-book"
+      name="olid"
+      placeholder="Enter book olid ..."
+      class="input-text"
+      required
+    />
+
+    <label for="new:rating-book" class="input-icon">
+      <img src="assets/rating.png" alt="" />
+    </label>
+    <input
+      type="number"
+      id="new:rating-book"
+      name="rating"
+      step="0.1"
+      min="0"
+      max="10"
+      placeholder="Enter book rating ..."
+      class="input-text"
+    />
+
+    <label for="new:book-summary" class="input-icon">
+      <img src="assets/olid.png" alt="" />
+    </label>
+    <textarea
+      id="new:book-summary"
+      name="summary"
+      placeholder="Enter summary ..."
+      class="textarea-summary"
+    ></textarea>
+
+    <button type="submit" class="adding-book">ADD BOOK</button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

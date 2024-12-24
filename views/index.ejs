@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <h1 class="title-web"><a href="/">BOOKSHELF</a></h1>
+  <div class="wrapper">
+    <button class="sort-btn" onclick="handleSorting()">
+      <img src="assets/sort.svg" alt="sort-icon" class="sort-icon" />
+      <span><%= sort %></span>
+    </button>
+    <form class="sort-dropdown" id="sortContent" method="get">
+      <button formaction="/filter" name="category" value="title">title</button>
+      <button formaction="/filter" name="category" value="rate">Rating</button>
+    </form>
+
+    <% books.forEach((bk) => { %>
+    <div class="card-books">
+      <div class="img-books">
+        <img src="<%= bk.img_url %>" alt="image-book" class="image-book" />
+      </div>
+      <div class="description-books">
+        <h1 class="title-book">
+          <a href="/book/<%= bk.id %>"><%= bk.title %></a>
+        </h1>
+        <hr />
+        <div class="summary-book">
+          <span><%= bk.book_summary %></span>
+        </div>
+      </div>
+      <div class="footer-book">
+        <p class="book-posted">
+          Book Posted: <%= bk.created_date.toLocaleDateString() %>
+        </p>
+        <div class="author">
+          <p><%= bk.author %></p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <form action="/book" method="get">
+    <button class="add-books">+</button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

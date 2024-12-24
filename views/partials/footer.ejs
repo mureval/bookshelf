@@ -1,0 +1,22 @@
+<footer>
+    
+</footer>
+<script>
+    function handleSorting() {
+      document.getElementById('sortContent').classList.toggle('show')
+    }
+  
+    window.onclick = function (event) {
+      if (!event.target.matches(".sort-btn")) {
+        let dropdowns = document.getElementsByClassName("sort-dropdown");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+          }
+        }
+      }
+    };
+  </script>
+</body>
+</html>
